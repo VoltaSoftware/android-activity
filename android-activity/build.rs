@@ -1,6 +1,12 @@
 #![allow(dead_code)]
 
 fn build_glue_for_game_activity() {
+    let os = std::env::var("CARGO_CFG_TARGET_OS").unwrap();
+    if os == "windows" {
+        // We ignore this so we dont have a failed build command. We don't build android projects on windows unless we use the cargo ndk toolchain.
+        return;
+    }
+
     for f in [
         "GameActivity.h",
         "GameActivity.cpp",
