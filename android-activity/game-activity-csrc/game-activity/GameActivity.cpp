@@ -971,7 +971,7 @@ static const JNINativeMethod g_methods[] = {
     {"onSurfaceRedrawNeededNative", "(JLandroid/view/Surface;)V",
      (void *)onSurfaceRedrawNeeded_native},
     {"onSurfaceDestroyedNative", "(J)V", (void *)onSurfaceDestroyed_native},
-    {"onTouchEventNative", "(JLandroid/view/MotionEvent;)Z",
+    {"onTouchEventNative", "(JLandroid/view/MotionEvent;IIIIIJJIIIIIIFF)Z",
      (void *)onTouchEvent_native},
     {"onKeyDownNative", "(JLandroid/view/KeyEvent;)Z",
      (void *)onKeyDown_native},
