@@ -46,6 +46,12 @@ fn build_glue_for_game_activity() {
 }
 
 fn main() {
-    #[cfg(all(feature = "game-activity", target_os = "android"))]
+    let os = std::env::var("CARGO_CFG_TARGET_OS").unwrap();
+    if os != "android" {
+        // For some reason using target_os in the cfg attribute breaks my app at runtime
+        // We ignore this so we dont have a failed build command. We don't build android projects on windows unless we use the cargo ndk toolchain.
+        return;
+    }
+    #[cfg(all(feature = "game-activity"))]
     build_glue_for_game_activity();
 }
